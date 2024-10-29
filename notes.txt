@@ -16,3 +16,10 @@ php artisan make:filament-resource Brand --generate
 php artisan make:filament-resource Product
 
 
+php artisan make:filament-relation-manager OrderResource address sreet_Address
+php artisan make:filament-widget OrderStats --resource=OrderResource
+
+php artisan make:filament-relation-manager UserResource orders id
+
+
+php artisan make:filament-widget LatestOrders --table

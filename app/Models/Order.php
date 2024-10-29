@@ -28,10 +28,10 @@ class Order extends Model
         return $this->belongsTo(User::class);
     }
 
-    // order has addresses
-    public function addresses()
+    // order has addresse
+    public function address()
     {
-        return $this->hasMany(Address::class);
+        return $this->hasOne(Address::class);
     }
 
     public function items()

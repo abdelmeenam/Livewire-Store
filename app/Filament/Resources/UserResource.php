@@ -19,8 +19,10 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 class UserResource extends Resource
 {
     protected static ?string $model = User::class;
+    //protected static ?string $recordTitleAttribute = 'name';
 
     protected static ?string $navigationIcon = 'heroicon-o-users';
+    protected static ?int $navigationSort = 1;
 
     public static function form(Form $form): Form
     {
@@ -80,7 +82,7 @@ class UserResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            RelationManagers\OrdersRelationManager::class,
         ];
     }
 
@@ -91,5 +93,11 @@ class UserResource extends Resource
             'create' => Pages\CreateUser::route('/create'),
             'edit' => Pages\EditUser::route('/{record}/edit'),
         ];
+    }
+
+    // Muliple search columns
+    public static function getGloballySearchableAttributes(): array
+    {
+        return ['name', 'email'];
     }
 }
