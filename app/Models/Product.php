@@ -14,7 +14,7 @@ class Product extends Model
         'brand_id',
         'name',
         'slug',
-        'image',
+        'images',
         'description',
         'price',
         'is_active',
@@ -42,8 +42,8 @@ class Product extends Model
         return $this->belongsTo(Category::class);
     }
 
-    public function orders()
+    public function orderItems()
     {
-        return $this->belongsToMany(Order::class, 'order_item', 'product_id', 'order_id');
+        return $this->hasMany(OrderItem::class);
     }
 }

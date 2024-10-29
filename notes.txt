@@ -1,6 +1,8 @@
 composer require filament/filament:"^3.2" -W
-php artisan filament:install --panels       // will create admin provider
+php artisan filament:install --panels           // will create admin provider
 php artisan make:filament-resource User
+php artisan make:filament-user
+
 https://heroicons.com/outline
 
 php artisan make:filament-resource Category --generate  // generate form and table based on this model
@@ -11,3 +13,6 @@ APP_URL=http://127.0.0.1:8000
 
 
 php artisan make:filament-resource Brand --generate
+php artisan make:filament-resource Product
+
+
