@@ -85,7 +85,7 @@ class OrdersRelationManager extends RelationManager
                 //
             ])
             ->headerActions([
-                //Tables\Actions\CreateAction::make(),
+                Tables\Actions\CreateAction::make(),
             ])
             ->actions([
                 Action::make('View Order')

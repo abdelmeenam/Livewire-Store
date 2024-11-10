@@ -20,7 +20,7 @@ use App\Filament\Resources\CategoryResource\RelationManagers;
 class CategoryResource extends Resource
 {
     protected static ?string $model = Category::class;
-
+    protected static ?string $recordTitleAttribute = 'name';
     protected static ?string $navigationIcon = 'heroicon-o-tag';
     protected static ?int $navigationSort = 3;
 
@@ -35,7 +35,7 @@ class CategoryResource extends Resource
                                 ->required()
                                 ->maxLength(255)
                                 ->live(onBlur: true)
-                                ->afterStateUpdated(fn(string $operation, $state, Set $set) => $operation === 'create' ? $set('slug', Str::slug($state)) : null),
+                                ->afterStateUpdated(fn(string $operation, $state, Set $set) => $operation === 'create' || $operation === 'edit' ? $set('slug', Str::slug($state)) : null),
 
                             Forms\Components\TextInput::make('slug')
                                 ->maxLength(255)
@@ -89,6 +89,10 @@ class CategoryResource extends Resource
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\ViewAction::make(),
                 Tables\Actions\DeleteAction::make(),
+
+
+
+
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

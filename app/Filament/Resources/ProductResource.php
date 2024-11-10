@@ -24,6 +24,7 @@ use Filament\Forms\Components\MarkdownEditor;
 use App\Filament\Resources\ProductResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\ProductResource\RelationManagers;
+use Filament\Tables\Actions\ActionGroup;
 
 class ProductResource extends Resource
 {
@@ -177,9 +178,15 @@ class ProductResource extends Resource
                     ->relationship('brand', 'name'),
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\ViewAction::make(),
-                Tables\Actions\DeleteAction::make(),
+
+
+                ActionGroup::make([
+                    Tables\Actions\EditAction::make(),
+                    Tables\Actions\ViewAction::make(),
+                    Tables\Actions\DeleteAction::make(),
+                ])
+
+
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

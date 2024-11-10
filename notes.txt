@@ -4,22 +4,33 @@ php artisan make:filament-resource User
 php artisan make:filament-user
 
 https://heroicons.com/outline
-
 php artisan make:filament-resource Category --generate  // generate form and table based on this model
 
 // Image Problem
 php artisan storage:link
 APP_URL=http://127.0.0.1:8000
 
-
 php artisan make:filament-resource Brand --generate
 php artisan make:filament-resource Product
-
 
 php artisan make:filament-relation-manager OrderResource address sreet_Address
 php artisan make:filament-widget OrderStats --resource=OrderResource
 
 php artisan make:filament-relation-manager UserResource orders id
 
-
 php artisan make:filament-widget LatestOrders --table
+
+====================================================================================
+install tailwind
+https://tailwindcss.com/docs/guides/laravel
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+- config tailwind
+npm i preline
+- config preline
+npm run dev
+
+composer require livewire/livewire
+php artisan livewire:layout
+php artisan make:livewire HomePage
+
