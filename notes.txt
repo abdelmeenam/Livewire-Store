@@ -34,3 +34,9 @@ composer require livewire/livewire
 php artisan livewire:layout
 php artisan make:livewire HomePage
 
+php artisan make:livewire partials.navbar
+php artisan make:livewire partials.footer
+
+// all pages - products , Categories .....
+$ php artisan make:livewire Pages
+
